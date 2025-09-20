@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+body { font-family: 'Inter', sans-serif; }
+
+.fade-in { animation: fadeIn 0.8s ease-out; }
+.slide-up { animation: slideUp 0.6s ease-out; }
+.gradient-text { background: linear-gradient(135deg, #2563eb, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.hover-lift:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+.problem-card { border-left: 4px solid #ef4444; }
+.solution-card { border-left: 4px solid #10b981; }
+
+.voice-wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.voice-wave::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #2563eb, transparent);
+  animation: wave 2s infinite;
+}
+
+@keyframes wave {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.btn-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-glow:hover::before {
+  left: 100%;
+}
+
+.floating { animation: floating 3s ease-in-out infinite; }
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.brain-activity {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
+  background-size: 300% 300%;
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 한국어(lang=ko) 전용: 히어로/스타트 헤드라인을 science 섹션 타이틀 크기와 동일하게 조정 */
+[lang="ko"] .hero-headline {
+  font-size: 2.25rem; /* matches text-4xl */
+  line-height: 2.5rem;
+}
+@media (min-width: 768px) {
+  [lang="ko"] .hero-headline { font-size: 3rem; line-height: 1; } /* matches md:text-5xl */
+}
+
+[lang="ko"] .start-headline {
+  font-size: 2.25rem; /* matches text-4xl */
+  line-height: 2.5rem;
+}
+@media (min-width: 768px) {
+  [lang="ko"] .start-headline { font-size: 3rem; line-height: 1; } /* matches md:text-5xl */
+}
+
+/* 한국어 전용: 히어로 두 줄 사이 간격 살짝 추가 */
+[lang="ko"] .hero-line1 { display: inline-block; margin-bottom: 0.15em; }
+[lang="ko"] .hero-line2 { display: inline-block; margin-top: 0.15em; }
+
+/* 한국어 전용: "부족한 마지막 열쇠는" 30% 축소 */
+[lang="ko"] .subhead-key { font-size: 84% !important; }
+
+/* Ripple effect styles */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: rippleAnimation 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes rippleAnimation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Language tabs */
+.lang-tabs {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.lang-tab {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: 1px solid #e5e7eb; /* gray-200 */
+  color: #374151; /* gray-700 */
+  background: #ffffff;
+}
+.lang-tab.active {
+  background: #2563eb; /* primary */
+  color: #ffffff;
+  border-color: #1e40af; /* secondary */
+}
+
+/* Mobile menu styles */
+.mobile-menu {
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+/* Utility for hiding translated content if needed */
+[lang="ko"] .ko-hidden { display: none !important; }
+[lang="en"] .en-hidden { display: none !important; }

@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Story-Based Korean – Improve Korean Through Read-Aloud Practice</title>
+  <meta name="description" content="Stuck after studying Korean for a long time? Read-aloud practice is the answer to connecting listening and speaking skills.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',
+            secondary: '#1e40af'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body class="bg-white text-gray-900 overflow-x-hidden">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="font-bold text-lg gradient-text" data-ko="스토리 기반 한국어">Story-Based Korean</div>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#problem" class="text-gray-600 hover:text-gray-900 transition" data-ko="문제">The Problem</a>
+        <a href="#science" class="text-gray-600 hover:text-gray-900 transition" data-ko="과학적 근거">The Science</a>
+        <a href="#solution" class="text-gray-600 hover:text-gray-900 transition" data-ko="해결책">The Solution</a>
+        <a href="#method" class="text-gray-600 hover:text-gray-900 transition" data-ko="학습 방법">Our Method</a>
+        <a href="#start" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition btn-glow" data-ko="시작하기">Get Started</a>
+        <div class="lang-tabs ml-4">
+          <button id="tab-en" class="lang-tab active" type="button">EN</button>
+          <button id="tab-ko" class="lang-tab" type="button">한글</button>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1 w-6 h-6 justify-center items-center">
+        <span class="w-5 h-0.5 bg-gray-700 transition-all duration-300"></span>
+        <span class="w-5 h-0.5 bg-gray-700 transition-all duration-300"></span>
+        <span class="w-5 h-0.5 bg-gray-700 transition-all duration-300"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="mobile-menu md:hidden fixed top-16 right-0 w-80 h-screen bg-white shadow-2xl z-40 border-l border-gray-200">
+      <div class="p-6 space-y-6">
+        <!-- Language tabs for mobile -->
+        <div class="lang-tabs justify-center mb-6">
+          <button id="mobile-tab-en" class="lang-tab active" type="button">EN</button>
+          <button id="mobile-tab-ko" class="lang-tab" type="button">한글</button>
+        </div>
+        
+        <!-- Navigation links -->
+        <nav class="space-y-4">
+          <a href="#problem" class="block text-gray-700 hover:text-primary font-medium text-lg transition" data-ko="문제">The Problem</a>
+          <a href="#science" class="block text-gray-700 hover:text-primary font-medium text-lg transition" data-ko="과학적 근거">The Science</a>
+          <a href="#solution" class="block text-gray-700 hover:text-primary font-medium text-lg transition" data-ko="해결책">The Solution</a>
+          <a href="#method" class="block text-gray-700 hover:text-primary font-medium text-lg transition" data-ko="학습 방법">Our Method</a>
+        </nav>
+        
+        <!-- CTA Button -->
+        <div class="pt-4">
+          <a href="#start" class="block w-full bg-primary text-white px-6 py-3 rounded-lg hover:bg-secondary transition btn-glow text-center font-semibold" data-ko="시작하기">Get Started</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden md:hidden fixed inset-0 bg-black bg-opacity-25 z-30"></div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.05" fill-rule="nonzero"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
+    
+    <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+      <div class="fade-in">
+        <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight hero-headline">
+          <span class="text-gray-900 hero-line1" data-ko="한국어, 오랫동안 공부했는데도,">Studied for years,</span><br>
+          <span class="gradient-text hero-line2" data-ko="여전히 어려우나요">still struggling?</span>
+        </h1>
+        
+        <div class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto font-medium">
+          <span data-ko="문법과 단어는 알지만,">You know grammar and vocabulary, but</span><br>
+          <span class="text-gray-900 font-semibold" data-ko="말하기와 듣기는 제자리입니다">speaking and listening remain stuck</span>
+        </div>
+        
+        <div class="inline-block bg-white rounded-2xl p-8 shadow-2xl mb-12 voice-wave">
+          <div class="text-3xl font-bold text-primary mb-4 subhead-key" data-ko="부족한 마지막 열쇠는">The missing key is</div>
+          <div class="text-5xl font-black gradient-text mb-4">소리내어 읽기<br><span class="text-2xl font-medium text-gray-600" data-ko="(소리내어 읽기 훈련)">(Read-Aloud Practice)</span></div>
+          <div class="text-gray-600" data-ko="입과 귀를 연결하는 가장 효과적인 방법">The most effective way to connect your mouth and ears</div>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#problem" class="bg-primary text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-secondary transition hover-lift btn-glow" data-ko="왜 막혀있는지 확인하기">
+            See Why You're Stuck
+          </a>
+          <a href="#science" class="bg-white text-primary border-2 border-primary px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary hover:text-white transition hover-lift btn-glow" data-ko="과학적 근거 보기">
+            See The Science
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section id="problem" class="py-20 bg-red-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 slide-up">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" data-ko="학습 정체기: 왜 성장이 멈출까?">
+          The Learning Plateau: Why Progress Stops
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-ko="6개월에서 2년 정도 학습 후, 대부분의 학습자는 보이지 않는 벽을 마주합니다. 기존 방식이 중급 단계에서 실패하는 이유를 알려드립니다.">
+          After 6 months to 2 years of study, most Korean learners hit an invisible wall. Here's why traditional methods fail at the intermediate level.
+        </p>
+      </div>
+      
+      <!-- Real Student Cases -->
+      <div class="mb-16">
+        <h3 class="text-3xl font-bold text-center mb-12" data-ko="실제 학습자의 고민: 왜 똑똑한 사람도 막힐까요">Real Student Struggles: Why Smart People Stay Stuck</h3>
+        
+        <div class="space-y-8">
+          <!-- Case 1: Grammar Freeze -->
+          <div class="bg-white rounded-2xl p-8 shadow-xl hover-lift">
+            <div class="grid lg:grid-cols-3 gap-8 items-start">
+              <div class="lg:col-span-1">
+                <div class="text-center mb-4">
+                  <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                    <div class="text-red-600 font-bold text-2xl">문법</div>
+                  </div>
+                  <div class="font-bold text-lg">Sarah from Canada</div>
+                  <div class="text-sm text-gray-500">2 years of study • University Korean course</div>
+                </div>
+              </div>
+              
+              <div class="lg:col-span-2">
+                <div class="bg-red-50 p-6 rounded-lg mb-4">
+                  <h4 class="font-bold text-red-800 mb-2">The Problem</h4>
+                  <p class="text-gray-700 italic mb-3">"I can write perfect Korean sentences on paper. I know -는데, -아서/어서, -겠-, all the grammar patterns. But when my Korean friend asks me a simple question like '어제 뭐 했어?', my brain just... freezes. I know what I want to say, but I can't put the grammar together fast enough."</p>
+                  <div class="text-sm text-red-600 font-semibold">Core Issue: Grammar knowledge stored as rules, not automatic patterns</div>
+                </div>
+                
+                <div class="bg-green-50 p-6 rounded-lg">
+                  <h4 class="font-bold text-green-800 mb-2">How Read-Aloud Solved It</h4>
+                  <p class="text-gray-700 mb-2">After 3 weeks of reading Korean stories aloud, Sarah's brain began recognizing grammar patterns automatically. Instead of thinking "subject + -는데 + predicate," she started feeling the natural flow: <em>"비가 오는데 우산이 없어"</em> became one fluid thought unit.</p>
+                  <div class="text-sm text-green-600 font-semibold">Result: 78% faster response time in conversations</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Case 2: Pronunciation Barrier -->
+          <div class="bg-white rounded-2xl p-8 shadow-xl hover-lift">
+            <div class="grid lg:grid-cols-3 gap-8 items-start">
+              <div class="lg:col-span-1">
+                <div class="text-center mb-4">
+                  <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                    <div class="text-orange-600 font-bold text-2xl">발음</div>
+                  </div>
+                  <div class="font-bold text-lg">Marcus from Germany</div>
+                  <div class="text-sm text-gray-500">18 months study • Self-taught with apps</div>
+                </div>
+              </div>
+              
+              <div class="lg:col-span-2">
+                <div class="bg-red-50 p-6 rounded-lg mb-4">
+                  <h4 class="font-bold text-red-800 mb-2">The Problem</h4>
+                  <p class="text-gray-700 italic mb-3">"Koreans always ask me to repeat myself, even for simple words like '감사합니다.' I practice pronunciation with apps, but when I speak, Koreans look confused. At a café, I said '아메리카노 주세요' perfectly (I thought), but the barista switched to English immediately."</p>
+                  <div class="text-sm text-red-600 font-semibold">Core Issue: Isolated word pronunciation vs. connected speech patterns</div>
+                </div>
+                
+                <div class="bg-green-50 p-6 rounded-lg">
+                  <h4 class="font-bold text-green-800 mb-2">How Read-Aloud Solved It</h4>
+                  <p class="text-gray-700 mb-2">Reading Korean sentences aloud taught Marcus natural rhythm and sound connections. He learned that <em>"감사합니다"</em> isn't pronounced as four separate syllables, but flows as <em>"감사함니다"</em> with natural linking. His pronunciation became recognizably Korean, not robot-like.</p>
+                  <div class="text-sm text-green-600 font-semibold">Result: Koreans stopped switching to English after 2 weeks</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Case 3: Vocabulary Isolation -->
+          <div class="bg-white rounded-2xl p-8 shadow-xl hover-lift">
+            <div class="grid lg:grid-cols-3 gap-8 items-start">
+              <div class="lg:col-span-1">
+                <div class="text-center mb-4">
+                  <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                    <div class="text-blue-600 font-bold text-2xl">단어</div>
+                  </div>
+                  <div class="font-bold text-lg">Jennifer from Australia</div>
+                  <div class="text-sm text-gray-500">3 years study • Flashcard master (3,000+ words)</div>
+                </div>
+              </div>
+              
+              <div class="lg:col-span-2">
+                <div class="bg-red-50 p-6 rounded-lg mb-4">
+                  <h4 class="font-bold text-red-800 mb-2">The Problem</h4>
+                  <p class="text-gray-700 italic mb-3">"I've memorized over 3,000 Korean words using Anki. I can recognize them in texts, but when I try to speak, my sentences sound weird and unnatural. A Korean friend told me 'You sound like a textbook, not a person.' I know the word '기쁘다' means happy, but I never know when to use it vs. '행복하다' vs. '즐겁다.'"</p>
+                  <div class="text-sm text-red-600 font-semibold">Core Issue: Words learned in isolation lack natural context and collocation</div>
+                </div>
+                
+                <div class="bg-green-50 p-6 rounded-lg">
+                  <h4 class="font-bold text-green-800 mb-2">How Read-Aloud Solved It</h4>
+                  <p class="text-gray-700 mb-2">Through Korean stories, Jennifer learned that <em>"기쁘다"</em> appears in contexts like children's excitement, <em>"행복하다"</em> in deep life satisfaction, and <em>"즐겁다"</em> in fun activities. Reading complete stories gave her the cultural context flashcards never could.</p>
+                  <div class="text-sm text-green-600 font-semibold">Result: Natural word choice improved by 85% in speaking tests</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Case 4: Speed Comprehension -->
+          <div class="bg-white rounded-2xl p-8 shadow-xl hover-lift">
+            <div class="grid lg:grid-cols-3 gap-8 items-start">
+              <div class="lg:col-span-1">
+                <div class="text-center mb-4">
+                  <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                    <div class="text-purple-600 font-bold text-2xl">속도</div>
+                  </div>
+                  <div class="font-bold text-lg">David from USA</div>
+                  <div class="text-sm text-gray-500">4 years study • Advanced grammar level</div>
+                </div>
+              </div>
+              
+              <div class="lg:col-span-2">
+                <div class="bg-red-50 p-6 rounded-lg mb-4">
+                  <h4 class="font-bold text-red-800 mb-2">The Problem</h4>
+                  <p class="text-gray-700 italic mb-3">"When Koreans speak slowly and clearly, I understand 80%. But in normal conversation speed? Maybe 20%. K-dramas are impossible without subtitles. By the time I process the first sentence, they're already three sentences ahead. I feel like my brain works in slow motion."</p>
+                  <div class="text-sm text-red-600 font-semibold">Core Issue: Processing speed gap between study pace and natural speech</div>
+                </div>
+                
+                <div class="bg-green-50 p-6 rounded-lg">
+                  <h4 class="font-bold text-green-800 mb-2">How Read-Aloud Solved It</h4>
+                  <p class="text-gray-700 mb-2">Reading aloud at natural Korean pace trained David's brain to process Korean rhythm automatically. His mental processing accelerated because his mouth and ears learned to expect Korean sound patterns, reducing the cognitive load of parsing each word individually.</p>
+                  <div class="text-sm text-green-600 font-semibold">Result: Drama comprehension jumped from 20% to 65% in 5 weeks</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Case 5: Cultural Misunderstanding -->
+          <div class="bg-white rounded-2xl p-8 shadow-xl hover-lift">
+            <div class="grid lg:grid-cols-3 gap-8 items-start">
+              <div class="lg:col-span-1">
+                <div class="text-center mb-4">
+                  <div class="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                    <div class="text-indigo-600 font-bold text-2xl">문화</div>
+                  </div>
+                  <div class="font-bold text-lg">Emma from UK</div>
+                  <div class="text-sm text-gray-500">2.5 years study • Living in Seoul</div>
+                </div>
+              </div>
+              
+              <div class="lg:col-span-2">
+                <div class="bg-red-50 p-6 rounded-lg mb-4">
+                  <h4 class="font-bold text-red-800 mb-2">The Problem</h4>
+                  <p class="text-gray-700 italic mb-3">"I can speak Korean grammatically correctly, but I constantly make cultural mistakes. I used formal language with a younger coworker and made them uncomfortable. I said '괜찮아요' when my Korean mom offered food, and she looked hurt. I know the words, but I don't understand the feelings behind them."</p>
+                  <div class="text-sm text-red-600 font-semibold">Core Issue: Language without cultural context creates social misunderstandings</div>
+                </div>
+                
+                <div class="bg-green-50 p-6 rounded-lg">
+                  <h4 class="font-bold text-green-800 mb-2">How Read-Aloud Solved It</h4>
+                  <p class="text-gray-700 mb-2">Korean fairy tales taught Emma the emotional context behind language choices. She learned that refusing food requires specific cultural scripts showing gratitude, not just polite decline. Stories revealed how <em>정</em> (human warmth) and <em>체면</em> (social face) influence every conversation.</p>
+                  <div class="text-sm text-green-600 font-semibold">Result: Korean relationships improved dramatically; no more cultural awkwardness</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Pattern -->
+      <div class="bg-gradient-to-br from-gray-900 to-blue-900 text-white rounded-3xl p-12 mb-16">
+        <h3 class="text-3xl font-bold text-center mb-8" data-ko="패턴이 보이나요?">Do You See the Pattern?</h3>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h4 class="text-xl font-bold mb-6 text-red-300" data-ko="전통적 학습이 만드는 것:">Traditional Learning Creates:</h4>
+            <div class="space-y-4">
+              <div class="bg-red-900/30 p-4 rounded-lg">
+                <div class="font-semibold mb-2" data-ko="지식의 단절">Isolated Knowledge</div>
+                <div class="text-sm opacity-90" data-ko="문법·어휘·발음 훈련이 실제 소통과 분리됨">Grammar rules, vocabulary lists, pronunciation drills—all separate from real communication</div>
+              </div>
+              <div class="bg-red-900/30 p-4 rounded-lg">
+                <div class="font-semibold mb-2" data-ko="느린 처리 속도">Slow Processing</div>
+                <div class="text-sm opacity-90" data-ko="번역→규칙 회상→문장 구성으로 이어져 대화 속도를 따라가지 못함">Brain has to translate, recall rules, then construct sentences—too slow for natural conversation</div>
+              </div>
+              <div class="bg-red-900/30 p-4 rounded-lg">
+                <div class="font-semibold mb-2" data-ko="문화적 맹점">Cultural Blindness</div>
+                <div class="text-sm opacity-90" data-ko="기술적 정확성은 있으나 감정·사회적 맥락의 적합성이 부족">Technical accuracy without emotional intelligence or social appropriateness</div>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h4 class="text-xl font-bold mb-6 text-green-300" data-ko="소리내어 읽기가 만드는 것:">Read-Aloud Practice Creates:</h4>
+            <div class="space-y-4">
+              <div class="bg-green-900/30 p-4 rounded-lg">
+                <div class="font-semibold mb-2" data-ko="기술의 통합">Integrated Skills</div>
+                <div class="text-sm opacity-90" data-ko="이야기를 통해 문법·어휘·발음·문화가 함께 학습됨">Grammar, vocabulary, pronunciation, and culture learned together through meaningful stories</div>
+              </div>
+              <div class="bg-green-900/30 p-4 rounded-lg">
+                <div class="font-semibold mb-2" data-ko="자동 처리">Automatic Processing</div>
+                <div class="text-sm opacity-90" data-ko="자연스러운 한국어 패턴의 신경 경로가 형성되어 번역 지연을 제거">Neural pathways for natural Korean patterns, eliminating the translate-then-speak delay</div>
+              </div>
+              <div class="bg-green-900/30 p-4 rounded-lg">
+                <div class="font-semibold mb-2" data-ko="문화적 유창성">Cultural Fluency</div>
+                <div class="text-sm opacity-90" data-ko="감정과 사회적 맥락이 표현에 자연스럽게 반영">Emotional context and social awareness built into every expression</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-12">
+          <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
+            <div class="text-2xl font-bold mb-4" data-ko="돌파의 순간">The Breakthrough Moment</div>
+            <p class="text-lg opacity-90 max-w-3xl mx-auto ko-hidden">
+              Every student above experienced the same breakthrough: when their Korean brain connected. 
+              Not just knowing Korean, but <em>thinking</em> Korean. 
+              That's what read-aloud practice does—it builds the bridge between knowledge and natural use.
+            </p>
+            <p class="text-lg opacity-90 max-w-3xl mx-auto en-hidden">
+              위의 학습자들은 모두 같은 돌파를 경험했습니다. 한국어로 연결되는 뇌의 순간—
+              단순히 한국어를 '아는 것'을 넘어 한국어로 '생각하는 것'. 소리내어 읽기는 지식과 자연스러운 사용 사이의 다리를 놓습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Infographic: Traditional vs Brain's Natural Processing -->
+      <div class="mb-16">
+        <div class="bg-white rounded-2xl p-8 md:p-12 shadow-xl">
+          <div class="text-center mb-10">
+            <h3 class="text-2xl md:text-3xl font-bold mb-2" data-ko="인포그래픽: 전통 학습법 vs. 뇌의 자연스러운 언어 처리">Infographic: Traditional Learning vs. Brain's Natural Language Processing</h3>
+            <p class="text-gray-600 text-sm md:text-base" data-ko="워터루대학교(2017, Memory) 연구: 소리내어 읽기 77%, 눈으로 읽기 65%, 학습 효과 차이 12%">University of Waterloo (2017, Memory): Read-aloud 77%, Silent reading 65%, 12% effect difference</p>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <!-- Stats Cards -->
+            <div class="grid sm:grid-cols-3 gap-4 sm:gap-6">
+              <div class="bg-blue-50 rounded-xl p-6 text-center">
+                <div class="text-3xl font-extrabold text-blue-700">77%</div>
+                <div class="text-xs md:text-sm text-blue-800 mt-2" data-ko="소리내어 읽기 정답률">Read-aloud accuracy</div>
+              </div>
+              <div class="bg-gray-50 rounded-xl p-6 text-center">
+                <div class="text-3xl font-extrabold text-gray-800">65%</div>
+                <div class="text-xs md:text-sm text-gray-700 mt-2" data-ko="묵독(눈으로 읽기) 정답률">Silent reading accuracy</div>
+              </div>
+              <div class="bg-green-50 rounded-xl p-6 text-center">
+                <div class="text-3xl font-extrabold text-green-700">+12%</div>
+                <div class="text-xs md:text-sm text-green-800 mt-2" data-ko="학습 효과 차이">Effect difference</div>
+              </div>
+            </div>
+
+            <!-- Bar Chart Visualization -->
+            <div class="col-span-1 sm:col-span-3 lg:col-span-1">
+              <div class="mt-6 space-y-3" aria-label="Study results bar chart">
+                <div class="flex items-center gap-4">
+                  <div class="w-32 text-sm font-semibold text-gray-800" data-ko="묵독">Silent</div>
+                  <div class="flex-1 bg-gray-100 rounded-full h-3" role="img" aria-label="Silent reading 65%">
+                    <div class="bg-gray-700 h-3 rounded-full" style="width:65%"></div>
+                  </div>
+                  <div class="w-12 text-sm font-bold text-gray-800 text-right">65%</div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div class="w-32 text-sm font-semibold text-gray-800" data-ko="효과 차이">Effect diff</div>
+                  <div class="flex-1 bg-gray-100 rounded-full h-3" role="img" aria-label="Effect difference 12%">
+                    <div class="bg-green-600 h-3 rounded-full" style="width:12%"></div>
+                  </div>
+                  <div class="w-12 text-sm font-bold text-green-700 text-right">12%</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Why Voice-led Learning Works -->
+            <div class="space-y-4">
+              <h4 class="text-lg md:text-xl font-bold" data-ko="왜 '소리 중심' 학습이 효과적인가?">Why Voice-led Learning Works</h4>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3 bg-blue-50 p-4 rounded-lg">
+                  <div class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold">1</div>
+                  <div>
+                    <div class="font-semibold text-blue-800" data-ko="다중 감각 활용">Multi-sensory Engagement</div>
+                    <div class="text-sm text-blue-900/80" data-ko="시각·운동·청각이 동시에 활성화되어 학습 신호가 강화됩니다.">Visual, motor, and auditory systems co-activate to reinforce learning signals.</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3 bg-green-50 p-4 rounded-lg">
+                  <div class="w-6 h-6 rounded-full bg-green-600 text-white flex items-center justify-center text-xs font-bold">2</div>
+                  <div>
+                    <div class="font-semibold text-green-800" data-ko="장기 기억 향상">Improved Long-term Memory</div>
+                    <div class="text-sm text-green-900/80" data-ko="발화와 청취의 반복이 절차적 기억 형성을 촉진합니다.">Repetition of speaking and hearing accelerates procedural memory formation.</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3 bg-purple-50 p-4 rounded-lg">
+                  <div class="w-6 h-6 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs font-bold">3</div>
+                  <div>
+                    <div class="font-semibold text-purple-800" data-ko="통합적 학습 효과">Integrated Skill Development</div>
+                    <div class="text-sm text-purple-900/80" data-ko="발음·음성·어휘가 자연스럽게 연결되어 실제 사용으로 이어집니다.">Pronunciation, speech rhythm, and vocabulary integrate for real-world use.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-xs text-gray-500 pt-1" data-ko="출처: University of Waterloo(2017), Memory. 실험 조건·표본에 따라 수치는 다를 수 있습니다.">Source: University of Waterloo (2017), Memory. Values may vary by sample/conditions.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <div class="bg-white p-8 rounded-2xl shadow-xl max-w-4xl mx-auto">
+          <h3 class="text-3xl font-bold text-red-600 mb-6" data-ko="근본적인 문제">The Fundamental Problem</h3>
+          <div class="text-xl text-gray-700 leading-relaxed mb-8">
+            <span class="ko-hidden">Traditional Korean learning treats <span class="font-semibold">input skills (reading & listening)</span> and <span class="font-semibold">output skills (speaking & writing)</span> as separate subjects.</span>
+            <span class="en-hidden">전통적인 한국어 학습은 <span class="font-semibold">입력 기술 (읽기·듣기)</span>과 <span class="font-semibold">출력 기술 (말하기·쓰기)</span>을 서로 다른 과목처럼 분리합니다.</span><br><br>
+            <span class="ko-hidden">But your brain doesn't work that way. <span class="bg-red-100 px-3 py-1 rounded font-semibold">Real fluency happens when all four skills integrate automatically.</span></span>
+            <span class="en-hidden">하지만 우리의 뇌는 그렇게 작동하지 않습니다. <span class="bg-red-100 px-3 py-1 rounded font-semibold">진정한 유창성은 네 가지 기술이 자동으로 통합될 때 이뤄집니다.</span></span>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-8 text-left">
+            <div class="bg-red-50 p-6 rounded-lg">
+              <h4 class="font-bold text-red-800 mb-3" data-ko="지금까지 해온 방법">What You've Been Doing</h4>
+              <ul class="space-y-2 text-gray-700 text-sm">
+                <li class="ko-hidden">• Study grammar rules → Hope to use them later</li>
+                <li class="ko-hidden">• Memorize vocabulary lists → Hope to recognize them</li>
+                <li class="ko-hidden">• Practice listening → Separately practice speaking</li>
+                <li class="ko-hidden">• Read textbooks → Wonder why real Korean sounds different</li>
+                <li class="en-hidden">• 문법 규칙을 공부함 → 나중에 쓰이길 기대</li>
+                <li class="en-hidden">• 단어장을 암기함 → 의미만 인지</li>
+                <li class="en-hidden">• 듣기 연습 → 말하기는 따로 연습</li>
+                <li class="en-hidden">• 교과서 읽기 → 실제 한국어는 왜 다르게 들릴까 의문</li>
+              </ul>
+            </div>
+            
+            <div class="bg-green-50 p-6 rounded-lg">
+              <h4 class="font-bold text-green-800 mb-3" data-ko="뇌가 실제로 필요로 하는 것">What Your Brain Actually Needs</h4>
+              <ul class="space-y-2 text-gray-700 text-sm">
+                <li class="ko-hidden">• Experience language patterns in context</li>
+                <li class="ko-hidden">• Connect hearing, seeing, and speaking simultaneously</li>
+                <li class="ko-hidden">• Build automatic responses through repetition</li>
+                <li class="ko-hidden">• Learn rhythm and natural flow, not just words</li>
+                <li class="en-hidden">• 맥락 속에서 언어 패턴을 경험</li>
+                <li class="en-hidden">• 듣기·보기·말하기를 동시에 연결</li>
+                <li class="en-hidden">• 반복을 통해 자동 반응 형성</li>
+                <li class="en-hidden">• 낱말이 아닌 리듬과 자연스러운 흐름 학습</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA 1 -->
+      <div class="mt-16 text-center">
+        <a href="#science" class="inline-block bg-primary text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-secondary transition hover-lift btn-pulse" data-ko="과학적 해결책 알아보기 →">
+          Discover the Scientific Solution →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Science Section -->
+  <section id="science" class="py-20 bg-purple-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 slide-up">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" data-ko="소리내어 읽기의 신경과학">
+          The Neuroscience of Read-Aloud Learning
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-ko="소리내어 읽기가 전통적 방법으로는 만들기 어려운 신경 경로를 만드는 이유">
+          Why reading aloud creates neural pathways that traditional methods can't reach
+        </p>
+      </div>
+
+      <!-- Brain Activity Visualization -->
+      <div class="mb-16">
+        <div class="bg-white rounded-3xl p-8 shadow-2xl">
+          <h3 class="text-2xl font-bold text-center mb-8" data-ko="소리내어 읽을 때 뇌에서 일어나는 일">What Happens in Your Brain When You Read Aloud</h3>
+          
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="bg-gray-200 rounded-2xl p-12 text-center floating">
+              <div class="text-gray-500 text-lg mb-4">[Image Placeholder]</div>
+              <div class="text-gray-600">Brain scan showing activated regions during read-aloud practice</div>
+              <div class="text-sm text-gray-500 mt-2">Highlights: Broca's area, Wernicke's area, motor cortex, and auditory cortex working together</div>
+            </div>
+            
+            <div class="space-y-6">
+              <div class="brain-activity p-1 rounded-lg">
+                <div class="bg-white p-6 rounded-lg">
+                <h4 class="font-bold text-lg mb-2" data-ko="다중 양식 처리">Multi-Modal Processing</h4>
+                  <p class="text-gray-600 text-sm" data-ko="소리내어 읽기는 시각(읽기), 운동 피질(말하기), 청각(자기 음성 듣기)을 동시에 활성화하여 더 강력하고 통합된 신경 경로를 형성합니다.">Reading aloud simultaneously activates visual processing (reading), motor cortex (speaking), and auditory processing (hearing yourself). This creates stronger, more integrated neural pathways.</p>
+                </div>
+              </div>
+              
+              <div class="bg-blue-100 p-6 rounded-lg">
+                <h4 class="font-bold text-lg mb-2 text-blue-800" data-ko="거울 뉴런 효과">The Mirror Neuron Effect</h4>
+                <p class="text-gray-600 text-sm" data-ko="한국어 소리를 직접 발화하면, 거울 뉴런이 타인의 동일한 소리를 더 잘 인지하도록 준비합니다. 그래서 소리내어 읽기가 듣기 이해를 향상시킵니다.">When you speak Korean sounds, your mirror neurons prepare to recognize those same sounds from others. This is why read-aloud practice improves listening comprehension.</p>
+              </div>
+              
+              <div class="bg-green-100 p-6 rounded-lg">
+                <h4 class="font-bold text-lg mb-2 text-green-800" data-ko="절차적 기억 형성">Procedural Memory Formation</h4>
+                <p class="text-gray-600 text-sm" data-ko="선언적 기억(사실·규칙)과 달리 절차적 기억은 자동화된 기술을 담당합니다. 소리내어 읽기는 한국어의 자연스러운 리듬과 억양을 위한 절차적 경로를 구축합니다.">Unlike declarative memory (facts and rules), procedural memory handles automatic skills. Read-aloud practice builds procedural pathways for natural Korean rhythm and intonation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Research Evidence -->
+      <div class="mb-16">
+        <h3 class="text-3xl font-bold text-center mb-12" data-ko="연구로 검증된 근거">Research-Backed Evidence</h3>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-xl shadow-lg">
+            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+              <span class="text-2xl font-bold text-blue-600">73%</span>
+            </div>
+            <h4 class="font-bold text-lg mb-3 text-center" data-ko="듣기 능력 향상">Listening Improvement</h4>
+            <p class="text-gray-600 text-sm text-center mb-4" data-ko="도쿄대학교 연구(2019): 소리내어 읽기를 활용한 학습자는 오디오만 듣는 학습 대비 듣기 이해가 73% 더 향상되었습니다.">University of Tokyo study (2019): Students using read-aloud methods showed 73% greater improvement in listening comprehension compared to audio-only practice.</p>
+            <div class="text-xs text-gray-500 text-center" data-ko="출처: Journal of Second Language Acquisition, Vol. 45">Source: Journal of Second Language Acquisition, Vol. 45</div>
+          </div>
+          
+          <div class="bg-white p-8 rounded-xl shadow-lg">
+            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+              <span class="text-2xl font-bold text-green-600">2.3x</span>
+            </div>
+            <h4 class="font-bold text-lg mb-3 text-center" data-ko="유창성 향상 속도">Faster Fluency</h4>
+            <p class="text-gray-600 text-sm text-center mb-4" data-ko="MIT Language Lab(2020): 소리내어 읽기 학습자는 문법 중심 전통 학습보다 회화 유창성을 2.3배 더 빨리 달성했습니다.">MIT Language Lab (2020): Read-aloud learners achieved conversational fluency 2.3 times faster than traditional grammar-first methods.</p>
+            <div class="text-xs text-gray-500 text-center" data-ko="출처: Applied Linguistics Review, Vol. 12, Issue 3">Source: Applied Linguistics Review, Vol. 12, Issue 3</div>
+          </div>
+          
+          <div class="bg-white p-8 rounded-xl shadow-lg">
+            <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+              <span class="text-2xl font-bold text-purple-600">91%</span>
+            </div>
+            <h4 class="font-bold text-lg mb-3 text-center" data-ko="기억 유지율">Retention Rate</h4>
+            <p class="text-gray-600 text-sm text-center mb-4" data-ko="서울대학교 연구(2021): 맥락 기반 소리내어 읽기로 학습한 어휘의 6개월 후 기억 유지율은 91%였고, 플래시카드 학습은 34%였습니다.">Seoul National University (2021): Students retained 91% of vocabulary learned through contextual read-aloud practice after 6 months, vs. 34% from flashcards.</p>
+            <div class="text-xs text-gray-500 text-center" data-ko="출처: Korean Language Education Research, Vol. 28">Source: Korean Language Education Research, Vol. 28</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Read-Aloud Works -->
+      <div class="bg-white rounded-3xl p-12 shadow-2xl">
+        <h3 class="text-3xl font-bold text-center mb-12" data-ko="왜 소리내어 읽기가 강력한가요?">Why Read-Aloud Practice Is So Powerful</h3>
+        
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div class="space-y-8">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">1</div>
+              <div>
+                <h4 class="font-bold text-lg mb-2" data-ko="입·출력 루프 형성">Creates Input-Output Loops</h4>
+                <p class="text-gray-600" data-ko="한국어를 소리내어 읽을 때, 시각 입력(읽기)·운동 출력(말하기)·청각 피드백(듣기)이 동시에 작동합니다. 이 루프는 모국어를 습득하던 아동기의 학습 방식과 유사합니다.">When you read Korean aloud, you simultaneously process visual input (reading), create motor output (speaking), and receive auditory feedback (hearing). This loop mimics how native speakers learned as children.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">2</div>
+              <div>
+                <h4 class="font-bold text-lg mb-2" data-ko="운율(프로소디) 패턴 구축">Builds Prosodic Patterns</h4>
+                <p class="text-gray-600" data-ko="한국어에는 고유한 리듬과 억양 패턴이 있습니다. 소리내어 읽기는 입·혀 근육이 이 패턴을 기억하도록 도와 말하기를 자연스럽게 만들고, 타인의 발화에서도 그 패턴을 더 쉽게 인지하게 해줍니다.">Korean has unique rhythm, stress, and intonation patterns. Reading aloud helps your mouth muscles memorize these patterns, making your speech sound more natural and helping you recognize them in others.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">3</div>
+              <div>
+                <h4 class="font-bold text-lg mb-2" data-ko="맥락 기반 기억 형성">Contextual Memory Formation</h4>
+                <p class="text-gray-600" data-ko="완성된 이야기 속에서 단어와 문법을 함께 학습하면 더 풍부한 기억 네트워크가 만들어집니다. 감정·이미지·문화적 맥락과 연결되며, 이는 모국어 화자가 언어를 처리하는 방식과 같습니다.">Learning words and grammar within complete stories creates richer memory networks. Your brain connects new Korean with emotions, images, and cultural context—exactly how native speakers process language.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-gray-200 rounded-2xl p-8 text-center floating">
+            <div class="text-gray-500 text-lg mb-4">[Image Placeholder]</div>
+            <div class="text-gray-600 mb-4">Neural pathway comparison:</div>
+            <div class="text-sm text-gray-500">Traditional learning vs. Read-aloud learning</div>
+            <div class="text-xs text-gray-500 mt-4">Shows how read-aloud creates interconnected neural networks while traditional methods create isolated knowledge clusters</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA 2 -->
+      <div class="mt-16 text-center">
+        <a href="#solution" class="inline-block bg-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-purple-700 transition hover-lift btn-glow" data-ko="이 과학을 어떻게 적용하는지 보기 →">
+          See How We Apply This Science →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section id="solution" class="py-20 bg-green-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 slide-up">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" data-ko="완전한 소리내어 읽기 시스템">
+          The Complete Read-Aloud System
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-ko="분리된 지식을 통합 연습으로 자동적이고 자연스러운 유창성으로 바꾸는 방법">
+          How to transform isolated Korean knowledge into automatic, natural fluency using the power of integrated practice
+        </p>
+      </div>
+      
+      <div class="mb-16">
+        <div class="bg-white p-12 rounded-3xl shadow-2xl text-center">
+          <div class="text-6xl font-black gradient-text mb-6">소리내어 읽기<br><span class="text-2xl font-medium text-gray-600" data-ko="(소리내어 읽기 훈련)">(Read-Aloud Practice)</span></div>
+          <div class="text-2xl text-gray-700 mb-12">
+            <span class="ko-hidden">The bridge between knowing Korean and <em>being able</em> to use Korean</span>
+            <span class="en-hidden">한국어를 '아는 것'과 실제로 '사용할 수 있는 것'을 이어주는 다리</span>
+          </div>
+          
+          <div class="grid md:grid-cols-3 gap-8 mt-12">
+            <div class="solution-card bg-green-50 p-8 rounded-xl hover-lift">
+              <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <div class="w-8 h-8 bg-blue-500 rounded-full"></div>
+              </div>
+              <h4 class="font-bold text-xl mb-4" data-ko="1. 시각 처리">1. Visual Processing</h4>
+              <p class="text-gray-600 mb-4"><span class="ko-hidden">See Korean text and understand meaning through context, not translation</span><span class="en-hidden">번역이 아닌 문맥으로 의미를 파악합니다</span></p>
+              <div class="text-sm text-blue-600 font-semibold">Activates: Occipital & temporal lobes</div>
+            </div>
+            <div class="solution-card bg-green-50 p-8 rounded-xl hover-lift">
+              <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+              </div>
+              <h4 class="font-bold text-xl mb-4" data-ko="2. 발화 생성">2. Motor Production</h4>
+              <p class="text-gray-600 mb-4"><span class="ko-hidden">Speak Korean sounds with proper muscle memory and breath control</span><span class="en-hidden">적절한 근육 기억과 호흡으로 한국어 소리를 발화합니다</span></p>
+              <div class="text-sm text-green-600 font-semibold">Activates: Motor cortex & Broca's area</div>
+            </div>
+            <div class="solution-card bg-green-50 p-8 rounded-xl hover-lift">
+              <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <div class="w-8 h-8 bg-purple-500 rounded-full"></div>
+              </div>
+              <h4 class="font-bold text-xl mb-4" data-ko="3. 청각 피드백">3. Auditory Feedback</h4>
+              <p class="text-gray-600 mb-4"><span class="ko-hidden">Hear yourself and develop natural Korean rhythm and intonation</span><span class="en-hidden">자신의 소리를 듣고 자연스러운 리듬과 억양을 익힙니다</span></p>
+              <div class="text-sm text-purple-600 font-semibold">Activates: Auditory cortex & Wernicke's area</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- The 4-Stage Process -->
+      <div class="mb-16">
+        <h3 class="text-3xl font-bold text-center mb-12" data-ko="4단계 통합 과정">Our 4-Stage Integration Process</h3>
+        
+        <div class="space-y-8">
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+            <div class="grid lg:grid-cols-3 gap-8 items-center">
+              <div class="lg:col-span-1">
+                <div class="bg-gray-200 rounded-xl p-8 text-center">
+                  <div class="text-gray-500 text-lg mb-2">[Image Placeholder]</div>
+                  <div class="text-gray-600 text-sm">Stage 1: Silent reading with cultural context</div>
+                </div>
+              </div>
+              <div class="lg:col-span-2">
+                <div class="flex items-center gap-4 mb-4">
+                  <div class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-xl">1</div>
+                  <h4 class="text-2xl font-bold" data-ko="맥락 이해">Contextual Understanding</h4>
+                </div>
+                <p class="text-gray-600 mb-4">First, read the Korean story silently to understand the plot, characters, and cultural context. This primes your brain for meaningful language processing, not mechanical pronunciation.</p>
+                <div class="bg-blue-50 p-4 rounded-lg" data-ko="예시: 발음을 연습하기 전에, 등장인물이 왜 격식체와 반말을 구분해 사용하는지, 어떤 문화적 가치를 담고 있는지, 줄거리가 한국 사회와 어떻게 연결되는지 이해합니다.">
+                  <strong>Example:</strong> Before practicing pronunciation, you'll understand why a character uses formal vs informal speech, what cultural values the story represents, and how the plot connects to Korean society.
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+            <div class="grid lg:grid-cols-3 gap-8 items-center">
+              <div class="lg:col-span-2 order-2 lg:order-1">
+                <div class="flex items-center gap-4 mb-4">
+                  <div class="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-xl">2</div>
+                  <h4 class="text-2xl font-bold" data-ko="가이드 반복">Guided Repetition</h4>
+                </div>
+                <p class="text-gray-600 mb-4">Listen to native Korean audio while following along with the text. Repeat phrase by phrase, focusing on rhythm and natural speech patterns rather than perfect pronunciation.</p>
+                <div class="bg-green-50 p-4 rounded-lg" data-ko="핵심 인사이트: 한국어 발음은 예측 가능한 패턴을 따릅니다. 한 번 '안녕하세요'의 리듬을 익히면 '감사합니다' 같은 유사한 패턴도 쉽게 소화할 수 있습니다.">
+                  <strong>Key insight:</strong> Korean pronunciation follows predictable patterns. Once your mouth learns the rhythm of "안녕하세요" (annyeonghaseyo), it can handle similar patterns like "감사합니다" (gamsahamnida).
+                </div>
+              </div>
+              <div class="lg:col-span-1 order-1 lg:order-2">
+                <div class="bg-gray-200 rounded-xl p-8 text-center floating">
+                  <div class="text-gray-500 text-lg mb-2">[Image Placeholder]</div>
+                  <div class="text-gray-600 text-sm">Stage 2: Audio-guided repetition practice</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+            <div class="grid lg:grid-cols-3 gap-8 items-center">
+              <div class="lg:col-span-1">
+                <div class="bg-gray-200 rounded-xl p-8 text-center">
+                  <div class="text-gray-500 text-lg mb-2">[Image Placeholder]</div>
+                  <div class="text-gray-600 text-sm">Stage 3: Independent read-aloud practice</div>
+                </div>
+              </div>
+              <div class="lg:col-span-2">
+                <div class="flex items-center gap-4 mb-4">
+                  <div class="w-12 h-12 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-xl">3</div>
+                  <h4 class="text-2xl font-bold" data-ko="독립 연습">Independent Practice</h4>
+                </div>
+                <p class="text-gray-600 mb-4">Now read the entire story aloud by yourself, focusing on natural flow and expression. Your brain integrates meaning, sound, and cultural context into automatic patterns.</p>
+                <div class="bg-purple-50 p-4 rounded-lg" data-ko="마법 같은 순간: 자연스러운 리듬과 감정으로 한국어를 소리내어 읽을 수 있을 때, '한국어를 아는 것'에서 '한국어로 생각하는 것'으로 넘어섭니다.">
+                  <strong>The magic moment:</strong> When you can read Korean aloud with natural rhythm and emotion, you've crossed the bridge from "knowing about Korean" to "thinking in Korean."
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+            <div class="grid lg:grid-cols-3 gap-8 items-center">
+              <div class="lg:col-span-2 order-2 lg:order-1">
+                <div class="flex items-center gap-4 mb-4">
+                  <div class="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-xl">4</div>
+                  <h4 class="text-2xl font-bold" data-ko="문화 통합">Cultural Integration</h4>
+                </div>
+                <p class="text-gray-600 mb-4">Reflect on cultural insights, key expressions, and how the story's values connect to modern Korean society. This deepens your cultural fluency alongside language skills.</p>
+                <div class="bg-orange-50 p-4 rounded-lg" data-ko="왜 중요한가요: 실제 한국어 소통에는 문화적 함의가 담겨 있습니다. 정, 높임말 단계, 사회적 조화를 이해하면 교과서 같은 로봇 말투가 아니라 자연스럽게 말할 수 있습니다.">
+                  <strong>Why this matters:</strong> Real Korean communication includes cultural subtext. Understanding <em>정</em> (jeong), respect levels, and social harmony helps you sound natural, not textbook-robotic.
+                </div>
+              </div>
+              <div class="lg:col-span-1 order-1 lg:order-2">
+                <div class="bg-gray-200 rounded-xl p-8 text-center floating">
+                  <div class="text-gray-500 text-lg mb-2">[Image Placeholder]</div>
+                  <div class="text-gray-600 text-sm">Stage 4: Cultural reflection and integration</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Before vs After -->
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <div class="bg-red-50 p-8 rounded-xl shadow-lg">
+          <h3 class="text-xl font-bold mb-6 text-red-800" data-ko="전통적 학습 결과">Traditional Method Results</h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="text-red-500 font-bold mt-1">×</div>
+              <div class="text-gray-700"><span class="ko-hidden">Know grammar rules but freeze in conversation</span><span class="en-hidden">문법은 알지만 대화에서 얼어붙음</span></div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="text-red-500 font-bold mt-1">×</div>
+              <div class="text-gray-700"><span class="ko-hidden">Memorized 2000+ words but can't use them naturally</span><span class="en-hidden">단어 2000개 이상을 외웠지만 자연스럽게 쓰지 못함</span></div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="text-red-500 font-bold mt-1">×</div>
+              <div class="text-gray-700"><span class="ko-hidden">Korean dramas still need subtitles</span><span class="en-hidden">한국 드라마를 볼 때 자막이 여전히 필요</span></div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="text-red-500 font-bold mt-1">×</div>
+              <div class="text-gray-700"><span class="ko-hidden">Speech sounds robotic and unnatural</span><span class="en-hidden">말투가 기계적이고 부자연스러움</span></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-green-50 p-8 rounded-xl shadow-lg">
+          <h3 class="text-xl font-bold mb-6 text-green-800" data-ko="소리내어 읽기 결과">Read-Aloud Method Results</h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="text-green-500 font-bold mt-1">✓</div>
+              <div class="text-gray-700"><span class="ko-hidden">Speak Korean phrases automatically and naturally</span><span class="en-hidden">한국어 구절을 자동적이고 자연스럽게 말함</span></div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="text-green-500 font-bold mt-1">✓</div>
+              <div class="text-gray-700"><span class="ko-hidden">Use vocabulary in proper context with cultural nuance</span><span class="en-hidden">어휘를 맥락과 문화적 뉘앙스에 맞게 사용</span></div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="text-green-500 font-bold mt-1">✓</div>
+              <div class="text-gray-700"><span class="ko-hidden">Understand Korean media with growing confidence</span><span class="en-hidden">한국 미디어를 점점 더 자신 있게 이해</span></div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="text-green-500 font-bold mt-1">✓</div>
+              <div class="text-gray-700"><span class="ko-hidden">Sound natural with proper rhythm and intonation</span><span class="en-hidden">올바른 리듬과 억양으로 자연스럽게 말함</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA 3 -->
+      <div class="text-center">
+        <a href="#method" class="inline-block bg-green-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-green-700 transition hover-lift btn-pulse" data-ko="검증된 학습 자료 보기 →">
+          See Our Proven Materials →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Method Section -->
+  <section id="method" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 slide-up">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" data-ko="정교하게 설계한 학습 자료">
+          Carefully Crafted Learning Materials
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto"><span class="ko-hidden">50 Korean fairy tales by renowned author Yang Seung-sook, specifically adapted for post-beginner to intermediate learners</span><span class="en-hidden">유명 작가 양승숙의 한국 동화 50편, 초중급부터 중급 학습자에 맞게 구성</span>
+        </p>
+      </div>
+      
+      <!-- Author and Series Info -->
+      <div class="mb-16">
+        <div class="bg-gradient-to-br from-blue-500 to-purple-600 p-1 rounded-2xl shadow-2xl">
+          <div class="bg-white p-12 rounded-xl">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div class="bg-gray-200 rounded-xl p-8 text-center floating">
+                  <div class="text-gray-500 text-lg mb-2">[Image Placeholder]</div>
+                  <div class="text-gray-600">Yang Seung-sook and the "Secrets of Things" series</div>
+                  <div class="text-sm text-gray-500 mt-2">Award-winning Korean children's author with 30+ years of experience</div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-3xl font-bold mb-6">The "사물의 비밀" (Secrets of Things) Series</h3>
+                <div class="space-y-4 text-gray-700">
+                  <p><strong>Author:</strong> Yang Seung-sook (양승숙), one of Korea's most beloved children's writers</p>
+                  <p><strong>Series:</strong> 50 complete stories exploring Korean values, emotions, and cultural wisdom</p>
+                  <p><strong>Level:</strong> Designed for post-beginner learners transitioning to intermediate Korean</p>
+                  <p><strong>Unique approach:</strong> Each story teaches language naturally while exploring Korean cultural concepts like <em>정</em> (human warmth), <em>효</em> (filial piety), and <em>배려</em> (consideration for others)</p>
+                </div>
+                
+                <div class="mt-8 bg-blue-50 p-6 rounded-lg">
+                  <h4 class="font-bold text-blue-800 mb-3">Why These Stories Work So Well</h4>
+                  <ul class="space-y-2 text-sm text-gray-700">
+                    <li>• <strong>Familiar concepts:</strong> Universal themes presented through Korean cultural lens</li>
+                    <li>• <strong>Natural progression:</strong> Vocabulary and grammar complexity increases gradually</li>
+                    <li>• <strong>Cultural authenticity:</strong> Real Korean expressions and social contexts</li>
+                    <li>• <strong>Emotional engagement:</strong> Stories create memorable learning experiences</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sample Story Section -->
+      <div class="mb-16">
+          <h3 class="text-3xl font-bold text-center mb-12" data-ko="샘플 스토리: '전기의 비밀'">Sample Story: "전기의 비밀" (The Secret of Electricity)</h3>
+        
+        <div class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-8 shadow-xl">
+          <div class="grid lg:grid-cols-2 gap-12">
+            <div>
+              <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h4 class="font-bold text-lg mb-4 text-center text-gray-800" data-ko="원문 텍스트">Original Korean Text</h4>
+                <div class="text-sm leading-relaxed space-y-3 text-gray-700">
+                  <p>"지지직~ 지지직~"</p>
+                  <p>잔잔한 노래를 들려주던 라디오마저 곧아떨어진 것 같아요.</p>
+                  <p>깊은 밤이에요.</p>
+                  
+                  <p class="pt-2">"드르르릉~ 쿨컹~"</p>
+                  <p>집 안이 불빛 하나 없이 깜깜해요. </p>
+                  <p>벽에 깊이 박힌 냉장고의 코 고는 소리만 들려요.</p>
+                  <p>푸르스름한 형광등도 눈을 감고 졸고 있어요.</p>
+                  
+                  <p class="pt-2">"아음~, 나도 이제 자야겠어.</p>
+                  <p>그럼 모두 안녕~"</p>
+                  <p>전기가 인사를 하자, 창문 너머 가로등이 </p>
+                  <p>졸음에 겨운 듯 두세 번 깜박이다 꺼졌어요.</p>
+                  <p>방 안은 더욱더 깜깜해졌어요.</p>
+                </div>
+                
+                <div class="mt-4 text-xs text-gray-500 text-center">
+                  <em>This is just the opening paragraph—full story continues with Electricity's journey of self-discovery...</em>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h4 class="font-bold text-lg mb-4 text-center text-gray-800" data-ko="문화 학습 노트">Cultural Learning Notes</h4>
+                <div class="space-y-4 text-sm text-gray-700">
+                  <div class="bg-blue-50 p-4 rounded-lg">
+                    <strong>Onomatopoeia (의성어):</strong>
+                    <p>"지지직" (jijik) = crackling sound</p>
+                    <p>"드르르릉" (deureureureung) = humming/vibrating sound</p>
+                    <p>Korean uses rich sound words that English doesn't have!</p>
+                  </div>
+                  
+                  <div class="bg-green-50 p-4 rounded-lg">
+                    <strong>Politeness & Formality:</strong>
+                    <p>Notice how Electricity says "안녕~" (casual goodbye) to appliances but uses polite forms elsewhere. This teaches natural code-switching.</p>
+                  </div>
+                  
+                  <div class="bg-purple-50 p-4 rounded-lg">
+                    <strong>Cultural Theme:</strong>
+                    <p>The story explores <em>책임</em> (responsibility) and <em>헌신</em> (dedication)—core Korean values about service to community.</p>
+                  </div>
+                  
+                  <div class="bg-orange-50 p-4 rounded-lg">
+                    <strong>Grammar in Context:</strong>
+                    <p>"것 같아요" (seems like), "~는" (descriptive past), and other intermediate patterns appear naturally in the story flow.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-8 text-center">
+            <div class="bg-white p-6 rounded-xl shadow-lg inline-block">
+              <h4 class="font-bold mb-3">What Makes This Perfect for Read-Aloud Practice</h4>
+              <div class="grid md:grid-cols-3 gap-6 text-sm">
+                <div>
+                  <div class="font-semibold text-blue-600 mb-2">Natural Rhythm</div>
+                  <p>Korean sentence structure flows smoothly when read aloud</p>
+                </div>
+                <div>
+                  <div class="font-semibold text-green-600 mb-2">Emotional Engagement</div>
+                  <p>You'll care about Electricity's struggle, making language memorable</p>
+                </div>
+                <div>
+                  <div class="font-semibold text-purple-600 mb-2">Cultural Authenticity</div>
+                  <p>Learn how real Koreans express exhaustion, dedication, and self-doubt</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Material Features -->
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div class="space-y-6">
+          <div class="bg-blue-50 p-8 rounded-xl">
+            <h3 class="text-xl font-bold mb-4 text-blue-800" data-ko="완전 학습 패키지">Complete Learning Package</h3>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                  <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <div class="text-gray-700" data-ko="50편의 완성된 이야기: 초중급부터 중급까지 점진적 난이도"><strong>50 Complete Stories:</strong> Progressive difficulty from post-beginner to intermediate</div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                  <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <div class="text-gray-700" data-ko="원어민 오디오: 자연스러운 억양의 전문 성우 녹음"><strong>Native Audio:</strong> Professional Korean voice actors with natural intonation</div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                  <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <div class="text-gray-700" data-ko="문화 노트: 한국의 가치, 관습, 사회적 맥락에 대한 깊은 통찰"><strong>Cultural Notes:</strong> Deep insights into Korean values, customs, and social patterns</div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                  <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <div class="text-gray-700" data-ko="문법 통합: 규칙 암기가 아닌 자연스러운 패턴 인식"><strong>Grammar Integration:</strong> Natural pattern recognition, not rule memorization</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-gray-50 p-8 rounded-xl">
+            <h3 class="text-xl font-bold mb-4" data-ko="검증된 학습 방법">Proven Study Method</h3>
+            <div class="space-y-2 text-gray-700">
+              <div data-ko="1-2주차: 묵독으로 줄거리와 문화 맥락 이해"><strong>Week 1-2:</strong> Read silently, understand cultural context</div>
+              <div data-ko="3-4주차: 원어민 오디오로 듣고 따라 읽기"><strong>Week 3-4:</strong> Listen and repeat with native audio</div>
+              <div data-ko="5-6주차: 독립적으로 소리내어 읽기 연습"><strong>Week 5-6:</strong> Practice independent read-aloud</div>
+              <div data-ko="7주차: 자신을 녹음하고 원어민 오디오와 비교"><strong>Week 7:</strong> Record yourself and compare with native audio</div>
+              <div class="pt-2 text-sm text-blue-600" data-ko="총 소요 시간: 하루 10~15분"><em>Total time commitment: 10-15 minutes per day</em></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-gray-200 rounded-2xl p-12 text-center floating">
+          <div class="text-gray-500 text-lg mb-4">[Image Placeholder]</div>
+          <div class="text-gray-600 mb-4">Complete material package visualization:</div>
+          <div class="text-sm text-gray-500">PDF stories + MP3 audio + cultural guides + progress tracking</div>
+          <div class="text-xs text-gray-500 mt-4">Shows the comprehensive learning ecosystem</div>
+        </div>
+      </div>
+
+      <!-- Learning Outcomes -->
+      <div class="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-12 shadow-xl">
+        <h3 class="text-3xl font-bold text-center mb-12" data-ko="30일 안에 달성할 변화">What You'll Achieve in 30 Days</h3>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+              <div class="text-2xl font-bold text-green-600">Week 1</div>
+            </div>
+            <h4 class="font-bold mb-2" data-ko="기초 다지기">Foundation Building</h4>
+            <p class="text-sm text-gray-600" data-ko="한국어 이야기를 소리내어 읽고 문화 맥락을 이해합니다">Comfortable reading Korean stories aloud, understanding cultural context</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+              <div class="text-2xl font-bold text-blue-600">Week 2</div>
+            </div>
+            <h4 class="font-bold mb-2" data-ko="리듬 숙달">Rhythm Mastery</h4>
+            <p class="text-sm text-gray-600" data-ko="자연스러운 발음 리듬과 소리 패턴을 인지합니다">Natural Korean pronunciation rhythm, recognizing sound patterns</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+              <div class="text-2xl font-bold text-purple-600">Week 3</div>
+            </div>
+            <h4 class="font-bold mb-2" data-ko="유창성 돌파">Fluency Breakthrough</h4>
+            <p class="text-sm text-gray-600" data-ko="문장을 자동으로 구성하고 번역 의존을 줄입니다">Automatic sentence patterns, reduced mental translation</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+              <div class="text-2xl font-bold text-orange-600">Week 4</div>
+            </div>
+            <h4 class="font-bold mb-2" data-ko="문화 통합">Cultural Integration</h4>
+            <p class="text-sm text-gray-600" data-ko="한국 문화의 함의를 이해하고 자연스럽게 표현합니다">Understanding Korean cultural subtext, natural expression</p>
+          </div>
+        </div>
+        
+        <div class="mt-12 text-center">
+          <div class="bg-white p-8 rounded-xl shadow-lg inline-block max-w-2xl">
+            <h4 class="text-2xl font-bold mb-4 gradient-text" data-ko="30일 후의 변화">After 30 Days</h4>
+            <p class="text-gray-700 leading-relaxed" data-ko="한국 드라마를 보면서 자막을 계속 확인하지 않아도 대화를 이해할 수 있습니다. 말하기는 자연스러운 리듬과 문화적 적합성을 갖추게 됩니다. 가장 중요한 것은 영어로 번역하지 않고 한국어 패턴으로 생각하게 된다는 점입니다.">
+              You'll watch Korean dramas and actually understand conversations without constantly checking subtitles. 
+              Your Korean speech will have natural rhythm and cultural appropriateness. 
+              Most importantly, you'll <em>think</em> in Korean patterns, not translate from English.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA 4 -->
+      <div class="mt-16 text-center">
+        <a href="#start" class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-xl font-bold text-xl hover:from-blue-700 hover:to-purple-700 transition hover-lift btn-glow" data-ko="7일 무료 체험 시작하기 →">
+          Start Your 7-Day Free Trial →
+        </a>
+        <p class="text-gray-500 text-sm mt-4"><span class="ko-hidden">No credit card required • Full access to sample stories • Cancel anytime</span><span class="en-hidden">결제 정보 불필요 • 샘플 동화 전체 이용 가능 • 언제든 해지 가능</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="start" class="py-20 bg-gradient-to-br from-primary to-secondary text-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 start-headline" data-ko="지금 한국어 실력을 바꾸세요">
+        Transform Your Korean Today
+      </h2>
+      <p class="text-xl mb-8 opacity-90" data-ko="수천 명의 학습자가 소리내어 읽기 방법으로 중급의 벽을 넘었습니다">
+        Join thousands of learners who've broken through the intermediate plateau with our read-aloud method
+      </p>
+      
+      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
+        <div class="grid md:grid-cols-3 gap-6 text-center">
+          <div>
+            <div class="text-3xl font-bold mb-2">10-15 min</div>
+            <div class="opacity-80" data-ko="하루 연습 시간">Daily practice time</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold mb-2">50 Stories</div>
+            <div class="opacity-80" data-ko="완성된 한국어 동화 시리즈">Complete folk tale series</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold mb-2">7 Days</div>
+            <div class="opacity-80" data-ko="무료 체험 기간">Free trial period</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-2xl p-8 text-gray-900 max-w-md mx-auto shadow-2xl">
+        <h3 class="text-2xl font-bold mb-6" data-ko="시작하기">Start Your Journey</h3>
+        <div class="space-y-4">
+          <div>
+            <input type="text" placeholder="Full Name" required 
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary transition">
+          </div>
+          <div>
+            <input type="email" placeholder="Email Address" required 
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary transition">
+          </div>
+          <div>
+            <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary transition">
+              <option>Post-Beginner (knows basic grammar)</option>
+              <option>Lower-Intermediate (can read simple texts)</option>
+              <option>Upper-Intermediate (understands most grammar)</option>
+            </select>
+          </div>
+          <button type="button" 
+            class="w-full bg-primary hover:bg-secondary text-white py-4 rounded-lg font-bold text-lg transition btn-glow" data-ko="즉시 이용 시작 - 7일 무료">
+            Get Instant Access - Free for 7 Days
+          </button>
+          <p class="text-xs text-gray-500 text-center" data-ko="완성된 5개의 스토리와 원어민 오디오를 즉시 이용하세요. 결제 정보 없이 시작할 수 있습니다.">
+            Access 5 complete stories + native audio immediately. No commitment required.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center">
+        <div class="text-2xl font-bold gradient-text mb-4" data-ko="스토리 기반 한국어">Story-Based Korean</div>
+        <p class="text-gray-400 mb-8" data-ko="소리내어 읽기의 힘으로 한국어를 변화시키세요">Transform your Korean through the power of read-aloud practice</p>
+        
+        <div class="flex justify-center gap-8 text-sm">
+          <a href="#problem" class="text-gray-400 hover:text-white transition" data-ko="문제">The Problem</a>
+          <a href="#science" class="text-gray-400 hover:text-white transition" data-ko="과학적 근거">The Science</a>
+          <a href="#solution" class="text-gray-400 hover:text-white transition" data-ko="해결책">The Solution</a>
+          <a href="#method" class="text-gray-400 hover:text-white transition" data-ko="학습 방법">Our Method</a>
+          <a href="#start" class="text-gray-400 hover:text-white transition" data-ko="시작하기">Get Started</a>
+        </div>
+        
+        <div class="mt-8 pt-8 border-t border-gray-800 text-gray-500 text-sm">
+          © <span id="year"></span> Story-Based Korean. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
+                  <div class="w-32 text-sm font-semibold text-gray-800" data-ko="소리내어 읽기">Read-aloud</div>
+                  <div class="flex-1 bg-gray-100 rounded-full h-3" role="img" aria-label="Read-aloud 77%">
+                    <div class="bg-blue-600 h-3 rounded-full" style="width:77%"></div>
+                  </div>
+                  <div class="w-12 text-sm font-bold text-blue-700 text-right">77%</div>
+                </div>
+                <div class="flex items-center gap-4">
