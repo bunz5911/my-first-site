@@ -132,33 +132,43 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 })();
 
-// 언어 탭 토글 (원문/한국어)
+// 언어 탭 토글 (원문/한국어) - 수정된 버전
 (function setupLanguageTabs() {
   var root = document.documentElement;
-  // URL 파라미터(lang) 우선 적용: ?lang=ko 또는 ?lang=en
-  var params = new URLSearchParams(window.location.search);
-  var paramLang = params.get('lang');
-  if (paramLang === 'ko' || paramLang === 'en') {
-    root.setAttribute('lang', paramLang);
-  }
-  var currentLang = (root.getAttribute('lang') || 'en').startsWith('ko') ? 'ko' : 'en';
-  root.setAttribute('lang', currentLang);
+  var currentLang = 'en'; // 기본값을 영어로 설정
 
   function applyLanguage(lang) {
+    console.log('Applying language:', lang);
     var isKo = lang === 'ko';
+    
     document.querySelectorAll('[data-ko]').forEach(function(el){
       var original = el.getAttribute('data-original');
       if (!original) {
-        el.setAttribute('data-original', el.textContent);
+        el.setAttribute('data-original', el.textContent || el.innerText);
       }
-      el.textContent = isKo ? el.getAttribute('data-ko') : el.getAttribute('data-original');
+      
+      if (isKo) {
+        el.textContent = el.getAttribute('data-ko');
+      } else {
+        el.textContent = el.getAttribute('data-original');
+      }
     });
 
     root.setAttribute('lang', isKo ? 'ko' : 'en');
+    currentLang = lang;
     
+    // 모든 탭 업데이트
+    updateAllTabs(isKo);
+  }
+
+  function updateAllTabs(isKo) {
     // 데스크톱 탭
     var enTab = document.getElementById('tab-en');
     var koTab = document.getElementById('tab-ko');
+    // 모바일 탭
+    var mobileEnTab = document.getElementById('mobile-tab-en');
+    var mobileKoTab = document.getElementById('mobile-tab-ko');
+    
     if (enTab && koTab) {
       if (isKo) {
         enTab.classList.remove('active');
@@ -169,9 +179,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // 모바일 탭
-    var mobileEnTab = document.getElementById('mobile-tab-en');
-    var mobileKoTab = document.getElementById('mobile-tab-ko');
     if (mobileEnTab && mobileKoTab) {
       if (isKo) {
         mobileEnTab.classList.remove('active');
@@ -183,25 +190,35 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // 데스크톱 탭 이벤트
-  var enTabBtn = document.getElementById('tab-en');
-  var koTabBtn = document.getElementById('tab-ko');
-  if (enTabBtn) enTabBtn.addEventListener('click', function(){ applyLanguage('en'); });
-  if (koTabBtn) koTabBtn.addEventListener('click', function(){ applyLanguage('ko'); });
+  // 이벤트 리스너 추가
+  document.addEventListener('DOMContentLoaded', function() {
+    // 데스크톱 탭
+    var enTabBtn = document.getElementById('tab-en');
+    var koTabBtn = document.getElementById('tab-ko');
+    // 모바일 탭
+    var mobileEnTabBtn = document.getElementById('mobile-tab-en');
+    var mobileKoTabBtn = document.getElementById('mobile-tab-ko');
+    
+    if (enTabBtn) enTabBtn.addEventListener('click', function(){ 
+      console.log('EN tab clicked');
+      applyLanguage('en'); 
+    });
+    if (koTabBtn) koTabBtn.addEventListener('click', function(){ 
+      console.log('KO tab clicked');
+      applyLanguage('ko'); 
+    });
+    if (mobileEnTabBtn) mobileEnTabBtn.addEventListener('click', function(){ 
+      console.log('Mobile EN tab clicked');
+      applyLanguage('en'); 
+    });
+    if (mobileKoTabBtn) mobileKoTabBtn.addEventListener('click', function(){ 
+      console.log('Mobile KO tab clicked');
+      applyLanguage('ko'); 
+    });
 
-  // 모바일 탭 이벤트
-  var mobileEnTabBtn = document.getElementById('mobile-tab-en');
-  var mobileKoTabBtn = document.getElementById('mobile-tab-ko');
-  if (mobileEnTabBtn) mobileEnTabBtn.addEventListener('click', function(){ applyLanguage('en'); });
-  if (mobileKoTabBtn) mobileKoTabBtn.addEventListener('click', function(){ applyLanguage('ko'); });
-
-  applyLanguage(currentLang);
-
-  // 언어가 URL 파라미터로 강제된 경우 탭 숨김
-  if (paramLang === 'ko' || paramLang === 'en') {
-    var tabs = document.querySelector('.lang-tabs');
-    if (tabs) tabs.style.display = 'none';
-  }
+    // 초기 언어 설정
+    applyLanguage('en');
+  });
 })();
 =======
 // 년도 표시
@@ -318,4 +335,55 @@ document.addEventListener('DOMContentLoaded', function() {
     if (tabs) tabs.style.display = 'none';
   }
 })();
+
+// 간단한 언어 토글 - 추가 코드
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Simple language toggle loaded');
+  
+  // 모든 언어 버튼 찾기
+  const allLangButtons = document.querySelectorAll('#tab-en, #tab-ko, #mobile-tab-en, #mobile-tab-ko');
+  
+  allLangButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      console.log('Language button clicked:', this.id);
+      
+      const isKorean = this.id.includes('ko');
+      const lang = isKorean ? 'ko' : 'en';
+      
+      // 모든 data-ko 요소 변경
+      document.querySelectorAll('[data-ko]').forEach(function(element) {
+        if (!element.getAttribute('data-original')) {
+          element.setAttribute('data-original', element.textContent);
+        }
+        
+        if (isKorean) {
+          element.textContent = element.getAttribute('data-ko');
+        } else {
+          element.textContent = element.getAttribute('data-original');
+        }
+      });
+      
+      // 모든 탭 버튼 업데이트
+      document.querySelectorAll('.lang-tab').forEach(function(tab) {
+        tab.classList.remove('active');
+      });
+      
+      // 같은 언어의 모든 탭 활성화
+      if (isKorean) {
+        document.querySelectorAll('#tab-ko, #mobile-tab-ko').forEach(function(tab) {
+          tab.classList.add('active');
+        });
+      } else {
+        document.querySelectorAll('#tab-en, #mobile-tab-en').forEach(function(tab) {
+          tab.classList.add('active');
+        });
+      }
+      
+      // HTML lang 속성 변경
+      document.documentElement.setAttribute('lang', lang);
+      
+      console.log('Language changed to:', lang);
+    });
+  });
+});
 >>>>>>> 30544372fb79204511de585eb2f2a34b0cd2ba65
