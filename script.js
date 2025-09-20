@@ -1,4 +1,13 @@
 <<<<<<< HEAD
+console.log('Script loaded');
+
+// 기존 setupMobileMenu 함수 전에 추가
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded');
+  const btn = document.getElementById('mobile-menu-btn');
+  console.log('Button found:', btn);
+});
+
 // 년도 표시
 (function updateYear() {
   const yearEl = document.getElementById('year');
