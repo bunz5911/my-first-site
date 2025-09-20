@@ -321,7 +321,21 @@ body { font-family: 'Inter', sans-serif; }
   border-color: #1e40af; /* secondary */
 }
 
+
 /* Utility for hiding translated content if needed */
 [lang="ko"] .ko-hidden { display: none !important; }
 [lang="en"] .en-hidden { display: none !important; }
+
+#mobile-menu-btn {
+  z-index: 100;
+  position: relative;
+}
+
+#mobile-menu-btn {
+  z-index: 100;
+  position: relative;
+  padding: 12px;
+  min-width: 44px;
+  min-height: 44px;
+}
 >>>>>>> 30544372fb79204511de585eb2f2a34b0cd2ba65
